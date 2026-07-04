@@ -1,0 +1,16 @@
+# High-assurance policy: phishing-resistant, hardware-backed, AAL3-like.
+# Suitable for defense/gov contexts requiring verifier-impersonation resistance.
+name: fedgov-aal3
+require_phishing_resistant: true
+require_user_verification: true
+require_hardware_backed: true
+allowed_origins:
+  - https://login.example.mil
+allowed_aaguids:
+  # YubiKey 5 Series (example — replace with your accepted authenticators)
+  - ee882879721c491397753dfcce97072a
+  - fa2b99dc9e3942578f924a30d23c4118
+allowed_formats:
+  - packed
+min_assurance: 85
+min_aal: 3

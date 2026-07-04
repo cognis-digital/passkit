@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "passkit"
+version = "1.0.0"
+description = "Open, self-hostable, standards-based phishing-resistant authentication tooling (WebAuthn/FIDO2 verifier, attestation, zero-trust scoring, policy)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Cognis Digital LLC" }]
+keywords = [
+    "webauthn", "fido2", "passkey", "phishing-resistant", "authentication",
+    "zero-trust", "attestation", "nist-800-63", "aal", "verifier",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Security :: Cryptography",
+]
+dependencies = [
+    "cryptography>=42.0.0",
+]
+
+[project.optional-dependencies]
+yaml = ["pyyaml>=6.0"]
+dev = ["pytest>=7.0", "pyyaml>=6.0"]
+
+[project.scripts]
+passkit = "passkit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cognis-digital/passkit"
+Repository = "https://github.com/cognis-digital/passkit"
+Issues = "https://github.com/cognis-digital/passkit/issues"
+
+[tool.setuptools.packages.find]
+include = ["passkit*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

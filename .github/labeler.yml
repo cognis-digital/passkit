@@ -1,0 +1,39 @@
+webauthn:
+  - changed-files:
+      - any-glob-to-any-file: "passkit/webauthn/**"
+
+attestation:
+  - changed-files:
+      - any-glob-to-any-file: "passkit/attestation/**"
+
+zerotrust:
+  - changed-files:
+      - any-glob-to-any-file: "passkit/zerotrust/**"
+
+challenge:
+  - changed-files:
+      - any-glob-to-any-file: "passkit/challenge/**"
+
+policy:
+  - changed-files:
+      - any-glob-to-any-file: "passkit/policy/**"
+
+cli:
+  - changed-files:
+      - any-glob-to-any-file: "passkit/cli.py"
+
+tests:
+  - changed-files:
+      - any-glob-to-any-file: "tests/**"
+
+demos:
+  - changed-files:
+      - any-glob-to-any-file: "demos/**"
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ["docs/**", "**/*.md"]
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ".github/**"

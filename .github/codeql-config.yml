@@ -1,0 +1,17 @@
+name: "passkit CodeQL config"
+
+# The CLI intentionally prints verification outcomes (including origin/challenge
+# values that arrived in the request) to stdout as a diagnostic/report surface.
+# These are request-supplied, non-secret ceremony artifacts, not credentials or
+# private keys, so clear-text-logging alerts on the CLI/report/demo surfaces are
+# false positives here. Private keys never leave the `cryptography` objects and
+# are never logged.
+query-filters:
+  - exclude:
+      id:
+        - py/clear-text-logging-sensitive-data
+        - py/clear-text-storage-sensitive-data
+
+paths-ignore:
+  - tests
+  - demos

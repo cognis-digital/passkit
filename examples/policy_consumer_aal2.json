@@ -1,0 +1,9 @@
+{
+  "name": "consumer-aal2",
+  "require_phishing_resistant": true,
+  "require_user_verification": true,
+  "require_hardware_backed": false,
+  "allowed_origins": ["https://app.example.com", "https://www.example.com"],
+  "min_assurance": 60,
+  "min_aal": 2
+}
