@@ -18,3 +18,12 @@ env/
 demos/*.svg
 demos/*.html
 examples/*.out.html
+
+# Node artifacts (not part of this Python project)
+node_modules/
+
+# Editor / OS cruft
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

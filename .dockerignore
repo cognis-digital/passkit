@@ -1,0 +1,28 @@
+.git
+.gitignore
+.github
+.venv
+venv
+env
+node_modules
+__pycache__
+**/__pycache__
+*.py[cod]
+*.egg-info
+.eggs
+build
+dist
+.pytest_cache
+.ruff_cache
+.mypy_cache
+.coverage
+htmlcov
+# demo output artifacts
+demos/*.svg
+demos/*.html
+examples/*.out.html
+# local editor/OS cruft
+.idea
+.vscode
+.DS_Store
+Thumbs.db

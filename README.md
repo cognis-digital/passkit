@@ -52,15 +52,71 @@ Python.
 
 ## Install
 
-```bash
-pip install -e .
-# optional YAML policy support:
-pip install -e ".[yaml]"
+**Prerequisites:** Python **3.10+** and `git`. The only runtime dependency is
+[`cryptography`](https://cryptography.io); the CBOR and COSE-key handling, the
+challenge store, scoring, policy, and QR encoder are all pure standard library.
+
+The setup scripts create an isolated `.venv`, install passkit as an editable
+package with dev + YAML extras, and verify the `passkit` command runs. They are
+idempotent — safe to re-run.
+
+### Windows (PowerShell)
+
+```powershell
+git clone https://github.com/cognis-digital/passkit
+cd passkit
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+.\.venv\Scripts\Activate.ps1   # activate in your shell
+passkit --help
 ```
 
-Requires Python 3.10+ and [`cryptography`](https://cryptography.io). The CBOR
-and COSE-key handling, the challenge store, scoring, policy, and QR encoder are
-all pure standard library.
+### macOS
+
+```bash
+git clone https://github.com/cognis-digital/passkit
+cd passkit
+./install.sh
+source .venv/bin/activate      # activate in your shell
+passkit --help
+```
+
+### Linux
+
+```bash
+git clone https://github.com/cognis-digital/passkit
+cd passkit
+./install.sh
+source .venv/bin/activate      # activate in your shell
+passkit --help
+```
+
+### Docker
+
+```bash
+docker build -t passkit .
+docker run --rm passkit --version
+docker run --rm passkit challenge --ttl 120
+# pipe JSON in over stdin:
+echo '{"userPresent":true,"phishingResistant":true}' | docker run --rm -i passkit score -
+```
+
+### Manual / pip
+
+```bash
+python -m pip install -e .          # core
+python -m pip install -e ".[yaml]"  # + YAML policy support
+python -m pip install -e ".[dev]"   # + test tooling
+```
+
+A cross-platform `Makefile` is also provided:
+
+```bash
+make install   # create .venv and install (dev + yaml extras)
+make test      # run the test suite
+make demo      # run every demo
+make lint      # ruff if available, else a byte-compile check
+make clean      # remove .venv, build artifacts, and caches
+```
 
 ## Quick start (library)
 
